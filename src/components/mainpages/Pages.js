@@ -53,7 +53,7 @@ function Pages() {
 
       <Route path='/cart' exact component={Cart} />
 
-      <Route exact path component={NotFound} />
+      <Route exact component={NotFound} />
     </Switch>
   );
 }

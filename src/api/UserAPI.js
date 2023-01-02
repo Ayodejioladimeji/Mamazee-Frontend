@@ -4,7 +4,6 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
 const endpoint = process.env.REACT_APP_API;
-const token = localStorage.getItem('token');
 
 function UserAPI() {
   const [isLogged, setIsLogged] = useState(false);
@@ -13,6 +12,8 @@ function UserAPI() {
   const [history, setHistory] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const token = localStorage.getItem('token');
 
   //
 
@@ -32,7 +33,7 @@ function UserAPI() {
           setData(res.data);
           setLoading(false);
         } catch (err) {
-          console.log('error');
+          console.log(err.response.data.msg);
           setLoading(false);
         }
       };
