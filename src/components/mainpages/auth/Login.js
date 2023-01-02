@@ -101,6 +101,14 @@ function Login() {
       <div className='login-page'>
         <form onSubmit={loginSubmit}>
           <h2>Login</h2>
+          <div className='login-box'>
+            <div>
+              <h5>User login details</h5>
+              <p>Email: brightlayo11@gmail.com</p>
+              <p>Password : brightlayo</p>
+            </div>
+            <hr />
+          </div>
           <input
             type='email'
             name='email'

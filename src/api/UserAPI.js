@@ -30,8 +30,10 @@ function UserAPI() {
 
           setCart(res.data.cart);
           setData(res.data);
+          setLoading(false);
         } catch (err) {
           console.log('error');
+          setLoading(false);
         }
       };
 

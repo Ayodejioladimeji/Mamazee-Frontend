@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './users.css';
 import SEO from '../../SEO/SEO';
+import Loading from './../utils/Loading';
 const endpoint = process.env.REACT_APP_API;
 const token = localStorage.getItem('token');
 
@@ -18,24 +19,30 @@ const Users = () => {
   const [data, setData] = useState([]);
   const state = useContext(GlobalState);
   const [isAdmin] = state.userAPI.isAdmin;
-  const [loading, setLoading] = useState(false);
+  const [loading] = state.userAPI.loading;
+  const [load, setLoad] = useState(false);
+  const [callback, setCallback] = useState(false);
 
   useEffect(async () => {
     if (isAdmin) {
       try {
+        setLoad(true);
         const res = await axios.get(endpoint + '/user/all_infor', {
           headers: {
             Authorization: token,
           },
         });
         setData(res.data);
+        setLoad(false);
       } catch (err) {
         setData({ ...data });
+        setLoad(false);
       }
     }
-  }, [isAdmin, token]);
+  }, [isAdmin, token, callback]);
 
   const handleDelete = (id) => {
+    console.log(id);
     fetch(endpoint + `/user/delete/${id}`, {
       method: 'delete',
       headers: { Authorization: token },
@@ -43,17 +50,23 @@ const Users = () => {
       .then((res) => res.json())
       .then((result) => {
         const newData = data.filter((items) => {
-          return items._id !== result._id, alert('deleted');
+          return items._id !== result._id;
         });
         setData(newData);
+        setCallback(!callback);
       });
   };
+
+  if (load || loading) return <Loading />;
+
+  //
 
   return (
     <div className='users'>
       <SEO title='Users' />
       <div className='users-center'>
         <h2>Customers</h2>
+        <p>Please do not delete all users while testing</p>
         {loading && <div>loading...</div>}
         <div style={{ overflowX: 'auto' }}>
           <table className='customers'>
