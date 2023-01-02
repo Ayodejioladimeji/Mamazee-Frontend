@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { GlobalState } from '../../../GlobalState';
 import ProductItem from '../utils/productItem/ProductItem';
-import Loading from '../utils/loading/Loading';
+// import Loading from '../utils/loading/Loading';
 import axios from 'axios';
 import Filters from './Filters';
 import LoadMore from './LoadMore';
 import { toast } from 'react-toastify';
 import SEO from '../../SEO/SEO';
+import Loading from './../utils/Loading';
 const endpoint = process.env.REACT_APP_API;
 const token = localStorage.getItem('token');
 

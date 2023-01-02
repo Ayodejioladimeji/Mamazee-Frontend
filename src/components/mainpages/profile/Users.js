@@ -29,7 +29,6 @@ const Users = () => {
           },
         });
         setData(res.data);
-        console.log(res.data);
       } catch (err) {
         setData({ ...data });
       }

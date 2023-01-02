@@ -12,6 +12,7 @@ function UserAPI() {
   const [cart, setCart] = useState([]);
   const [history, setHistory] = useState([]);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //
 
@@ -19,6 +20,7 @@ function UserAPI() {
     if (token) {
       const getUser = async () => {
         try {
+          setLoading(true);
           const res = await axios.get(endpoint + '/user/infor', {
             headers: { Authorization: token },
           });
@@ -67,6 +69,7 @@ function UserAPI() {
     cart: [cart, setCart],
     addCart: addCart,
     history: [history, setHistory],
+    loading: [loading, setLoading],
   };
 }
 

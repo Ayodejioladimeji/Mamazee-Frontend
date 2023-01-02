@@ -20,6 +20,7 @@ function Header() {
   const [isLogged] = state.userAPI.isLogged;
   const [isAdmin] = state.userAPI.isAdmin;
   const [cart] = state.userAPI.cart;
+  const [loading] = state.userAPI.loading;
   const [menu, setMenu] = useState(false);
 
   // The section of the logout user
@@ -96,9 +97,9 @@ function Header() {
 
         {isAdmin && adminRouter()}
 
-        {isLogged ? (
-          loggedRouter()
-        ) : (
+        {isLogged && loggedRouter()}
+
+        {!isLogged && !loading && (
           <li>
             <IoMdLogIn className='nav-icon' />
             <Link to='/login'>Login</Link>

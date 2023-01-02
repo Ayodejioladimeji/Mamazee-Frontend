@@ -16,6 +16,7 @@ function Cart() {
   const state = useContext(GlobalState);
   const [cart, setCart] = state.userAPI.cart;
   const [user] = state.userAPI.user;
+  const [isLogged] = state.userAPI.isLogged;
   const [total, setTotal] = useState(0);
   const data = user;
 
@@ -78,6 +79,13 @@ function Cart() {
 
   const tranSuccess = async () => {
     // const { reference } = payment;
+
+    console.log('trans');
+
+    // if (!isLogged) {
+    //   alert('Please login to checkout your product');
+    //   return;
+    // }
 
     await axios.post(
       endpoint + '/api/payment',
