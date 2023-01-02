@@ -34,17 +34,17 @@ function Header() {
   const adminRouter = () => {
     return (
       <>
-        <li>
+        <li onClick={() => setMenu(!menu)}>
           <FaStoreAlt className='nav-icon' />
           <Link to='/create_product'>Create Product</Link>
         </li>
 
-        <li>
+        <li onClick={() => setMenu(!menu)}>
           <FaUsers className='nav-icon' />
           <Link to='/users'>Users</Link>
         </li>
 
-        <li>
+        <li onClick={() => setMenu(!menu)}>
           <FaBoxes className='nav-icon' />
           <Link to='/category'>Categories</Link>
         </li>
@@ -55,15 +55,15 @@ function Header() {
   const loggedRouter = () => {
     return (
       <>
-        <li>
+        <li onClick={() => setMenu(!menu)}>
           <FaHistory className='nav-icon' />
           <Link to='/history'>History</Link>
         </li>
-        <li>
+        <li onClick={() => setMenu(!menu)}>
           <FaUser className='nav-icon' />
           <Link to='/profile'>Profile</Link>
         </li>
-        <li>
+        <li onClick={() => setMenu(!menu)}>
           <FaPowerOff className='nav-icon' />
           <Link to='/' onClick={logoutUser}>
             Logout
@@ -89,8 +89,8 @@ function Header() {
         </h1>
       </div>
 
-      <ul style={styleMenu} onClick={() => setMenu(!menu)}>
-        <li>
+      <ul style={styleMenu}>
+        <li onClick={() => setMenu(!menu)}>
           <FaShoppingBag className='nav-icon' />
           <Link to='/'>{isAdmin ? 'Products' : 'Products'}</Link>
         </li>
@@ -100,7 +100,7 @@ function Header() {
         {isLogged && loggedRouter()}
 
         {!isLogged && !loading && (
-          <li>
+          <li onClick={() => setMenu(!menu)}>
             <IoMdLogIn className='nav-icon' />
             <Link to='/login'>Login</Link>
           </li>

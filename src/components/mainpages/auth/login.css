@@ -38,6 +38,7 @@
   outline: none;
   color: var(--crimson);
   font-weight: bold;
+  font-size: 13px;
 }
 
 .login-page form .row {
@@ -100,6 +101,7 @@ a {
   padding: 0 15px;
   border-radius: 3px;
   margin: 5px 0;
+  font-size: 13px;
 }
 
 .fg_pass .row button {

@@ -105,7 +105,7 @@ function Cart() {
   if (cart.length === 0)
     return (
       <div className='empty'>
-        <h2 style={{ textAlign: 'center', fontSize: '4rem' }}>Cart Empty</h2>
+        <h2 style={{ textAlign: 'center', fontSize: '3rem' }}>Cart Empty</h2>
       </div>
     );
 
