@@ -66,7 +66,6 @@ const Users = () => {
       <SEO title='Users' />
       <div className='users-center'>
         <h2>Customers</h2>
-        <p>Please do not delete all users while testing</p>
         {loading && <div>loading...</div>}
         <div style={{ overflowX: 'auto' }}>
           <table className='customers'>
